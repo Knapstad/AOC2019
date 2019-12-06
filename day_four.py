@@ -2,16 +2,18 @@ len(pass)==6
 range(240298, 784956)
 
 def is_valid(numb):
-    has_dubble=False
     prev = 0
+    counts={}
     if len(str(numb))!=6:
-        print("too short")
         return False
     for i in str(numb):
+        counts[i]=counts.get(i,0)+1
         if i < str(prev):
-            print(f"{i} too small")
             return False
-        if i==str(prev):
-            has_dubble = True
         prev = i
-    return has_dubble
+    return 2 in counts.values()
+
+count=0
+for i in range(240298, 784956):
+    if is_valid(i):
+        count+=1

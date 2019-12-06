@@ -1,5 +1,6 @@
 
 goal=19690720
+results=[]
 
 for c in range(100):
     noun=c
@@ -24,7 +25,8 @@ for c in range(100):
                 inp[c]=inp[a]*inp[b]
             else:
                 print(f"error pos{i}")
-        print("checking ans")
+        results.append([noun,verb,inp[0]])
+        # print("checking ans")
         print(f"{inp[0]}  {goal}")
         if inp[0]==goal:
             print(f"verb {verb}, noun {noun} ans = {100*verb+noun}")
